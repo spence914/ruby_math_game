@@ -13,13 +13,13 @@ class Game
   end
   
   def display_scores
-    puts "#{@player1.name}: #{@player1.lives}/3 #{@player2.name}: #{@player2.lives}/3 "
+    puts "Current Score: #{@player1.name}: #{@player1.lives}/3 #{@player2.name}: #{@player2.lives}/3 "
   end
   
 
   def play_round
     question = Questions.new
-    puts question.ask_question
+    puts question.ask_question(@current_player.name)
 
     player_answer = @current_player.answer_question
 
@@ -37,8 +37,10 @@ class Game
         play_round
         display_scores
         next_turn
+        puts "----- Next Turn -----"
       end
       puts "Game Over: Final Score is #{@player1.name}: #{@player1.lives}/3 #{@player2.name}: #{@player2.lives}/3"
+      puts "The winner is #{@player1.lives > @player2.lives ? @player1.name : @player2.name}"
     end
 end
 

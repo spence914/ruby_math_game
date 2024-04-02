@@ -1,3 +1,6 @@
+require_relative "game.rb"
+require_relative 'players.rb'
+
 class Questions
   attr_reader :answer
 
@@ -9,7 +12,7 @@ class Questions
 
     end
 
-    def ask_question
-      "What is #{@number1} + #{@number2}?"
+    def ask_question(player_name)
+      "#{player_name} What is #{@number1} + #{@number2}?"
     end
 end
